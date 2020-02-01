@@ -14,7 +14,7 @@ class PokemonTypeServiceImplTest {
         var pokemonTypeRepository = mock(PokemonTypeRepository.class);
         var pokemonTypeService = new PokemonTypeServiceImpl(pokemonTypeRepository);
 
-        pokemonTypeService.getPokemonType(25);
+        pokemonTypeService.getPokemonTypeById(25);
 
         verify(pokemonTypeRepository).findPokemonTypeById(25);
     }

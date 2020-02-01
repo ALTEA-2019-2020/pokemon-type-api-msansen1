@@ -22,12 +22,12 @@ class PokemonTypeControllerTest {
         var pikachu = new PokemonType();
         pikachu.setId(25);
         pikachu.setName("pikachu");
-        when(service.getPokemonType(25)).thenReturn(pikachu);
+        when(service.getPokemonTypeById(25)).thenReturn(pikachu);
 
         var pokemon = controller.getPokemonTypeFromId(25);
         assertEquals("pikachu", pokemon.getName());
 
-        verify(service).getPokemonType(25);
+        verify(service).getPokemonTypeById(25);
     }
 
     @Test
