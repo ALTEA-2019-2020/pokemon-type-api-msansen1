@@ -21,7 +21,8 @@ public class PokemonTypeController {
     PokemonType getPokemonTypeFromId(@PathVariable int id){
         return pokemonTypeService.getPokemonTypeById(id);
     }
-    @GetMapping("/name/")
+
+    @GetMapping(value = "/", params = "name")
     PokemonType getPokemonTypeFromName(@RequestParam String name){
         return pokemonTypeService.getPokemonTypeByName(name);
     }
