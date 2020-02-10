@@ -1,7 +1,10 @@
 package com.miage.altea.tp.pokemon_type_api.bo;
 
+import com.miage.altea.tp.pokemon_type_api.repository.TranslationRepository;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 
 import java.util.List;
 
@@ -18,28 +21,4 @@ public class PokemonType {
     private int weight;
     private List<String> types;
 
-    /*
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Sprites getSprites() {
-        return sprites;
-    }
-
-    public void setSprites(Sprites sprites) {
-        this.sprites = sprites;
-    }*/
 }

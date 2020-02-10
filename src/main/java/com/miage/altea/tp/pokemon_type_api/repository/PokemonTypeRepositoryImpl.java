@@ -41,6 +41,6 @@ public class PokemonTypeRepositoryImpl implements PokemonTypeRepository {
 
     @Override
     public List<PokemonType> findAllPokemonType() {
-        return this.pokemons.stream().sorted((o1, o2) -> o2.getId() - o1.getId()).collect(Collectors.toList());
+        return this.pokemons.stream().sorted((o1, o2) -> o1.getId() - o2.getId()).collect(Collectors.toList());
     }
 }

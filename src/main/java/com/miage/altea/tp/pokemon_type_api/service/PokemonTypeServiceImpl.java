@@ -2,33 +2,62 @@ package com.miage.altea.tp.pokemon_type_api.service;
 
 import com.miage.altea.tp.pokemon_type_api.bo.PokemonType;
 import com.miage.altea.tp.pokemon_type_api.repository.PokemonTypeRepository;
+import com.miage.altea.tp.pokemon_type_api.repository.TranslationRepository;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@NoArgsConstructor
 public class PokemonTypeServiceImpl implements PokemonTypeService{
 
-    public PokemonTypeRepository pokemonTypeRepository;
-
     @Autowired
-    public PokemonTypeServiceImpl(PokemonTypeRepository pokemonTypeRepository){
+    public PokemonTypeRepository pokemonTypeRepository;
+    @Autowired
+    public TranslationRepository translationRepository;
+
+    public PokemonTypeServiceImpl(PokemonTypeRepository pokemonTypeRepository) {
         this.pokemonTypeRepository = pokemonTypeRepository;
     }
 
     @Override
     public PokemonType getPokemonTypeById(int id) {
-        return pokemonTypeRepository.findPokemonTypeById(id);
+        PokemonType poke = pokemonTypeRepository.findPokemonTypeById(id);
+        poke.setName(translationRepository.getPokemonName(poke.getId(), LocaleContextHolder.getLocale()));
+        return poke;
     }
 
     @Override
     public PokemonType getPokemonTypeByName(String name) {
-        return pokemonTypeRepository.findPokemonTypeByName(name);
+        PokemonType poke = pokemonTypeRepository.findPokemonTypeByName(name);
+        poke.setName(translationRepository.getPokemonName(poke.getId(), LocaleContextHolder.getLocale()));
+        return poke;
     }
 
     @Override
     public List<PokemonType> getAllPokemonTypes(){
-        return pokemonTypeRepository.findAllPokemonType();
+        //chercher la traduction du poke avant de le retourner
+        var pokeList = pokemonTypeRepository.findAllPokemonType();
+        List<PokemonType> out = new ArrayList<>();
+        pokeList.forEach(pokemonType -> {
+            PokemonType poke = pokemonType;
+            poke.setName(translationRepository.getPokemonName(pokemonType.getId(), LocaleContextHolder.getLocale()));
+            out.add(poke);
+        });
+        return out;
+    }
+
+    @Override
+    public void setPokemonTypeRepository(PokemonTypeRepository pokemonTypeRepository) {
+        this.pokemonTypeRepository = pokemonTypeRepository;
+    }
+
+    @Override
+    public void setTranslationRepository(TranslationRepository translationRepository) {
+        this.translationRepository = translationRepository;
     }
 }
