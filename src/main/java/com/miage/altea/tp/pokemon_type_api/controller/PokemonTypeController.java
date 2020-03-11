@@ -1,14 +1,16 @@
 package com.miage.altea.tp.pokemon_type_api.controller;
 
 import com.miage.altea.tp.pokemon_type_api.bo.PokemonType;
+import com.miage.altea.tp.pokemon_type_api.dto.PokemonFlat;
 import com.miage.altea.tp.pokemon_type_api.service.PokemonTypeService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/pokemon-types")
+@RequestMapping(value="/pokemon-types", produces = MediaType.APPLICATION_JSON_VALUE)
 public class PokemonTypeController {
 
     public PokemonTypeService pokemonTypeService;
@@ -30,5 +32,10 @@ public class PokemonTypeController {
     @GetMapping("/")
     public List<PokemonType> getAllPokemonTypes() {
         return pokemonTypeService.getAllPokemonTypes();
+    }
+
+    @GetMapping("/flat")
+    public List<PokemonFlat> getAllPokemonFlat() {
+        return pokemonTypeService.getAllPokemonFlats();
     }
 }

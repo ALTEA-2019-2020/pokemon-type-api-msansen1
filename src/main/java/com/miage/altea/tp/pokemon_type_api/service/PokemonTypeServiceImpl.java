@@ -1,6 +1,8 @@
 package com.miage.altea.tp.pokemon_type_api.service;
 
 import com.miage.altea.tp.pokemon_type_api.bo.PokemonType;
+import com.miage.altea.tp.pokemon_type_api.converter.PokemonConverter;
+import com.miage.altea.tp.pokemon_type_api.dto.PokemonFlat;
 import com.miage.altea.tp.pokemon_type_api.repository.PokemonTypeRepository;
 import com.miage.altea.tp.pokemon_type_api.repository.TranslationRepository;
 import lombok.NoArgsConstructor;
@@ -19,6 +21,8 @@ public class PokemonTypeServiceImpl implements PokemonTypeService{
     public PokemonTypeRepository pokemonTypeRepository;
     @Autowired
     public TranslationRepository translationRepository;
+    @Autowired
+    PokemonConverter pokemonConverter;
 
     public PokemonTypeServiceImpl(PokemonTypeRepository pokemonTypeRepository) {
         this.pokemonTypeRepository = pokemonTypeRepository;
@@ -47,6 +51,16 @@ public class PokemonTypeServiceImpl implements PokemonTypeService{
             PokemonType poke = pokemonType;
             poke.setName(translationRepository.getPokemonName(pokemonType.getId(), LocaleContextHolder.getLocale()));
             out.add(poke);
+        });
+        return out;
+    }
+
+    @Override
+    public List<PokemonFlat> getAllPokemonFlats() {
+        List<PokemonType> lpotype =  getAllPokemonTypes();
+        List<PokemonFlat> out = new ArrayList<>();
+        lpotype.forEach(pokemonType -> {
+            out.add(pokemonConverter.entityToDto(pokemonType));
         });
         return out;
     }
