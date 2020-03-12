@@ -42,6 +42,8 @@ public class TranslationRepositoryImpl implements TranslationRepository {
 
     @Override
     public String getPokemonName(int id, Locale locale) {
+        System.out.println(id);
+        System.out.println(locale);
         return this.translations.get(locale).get(id-1).getName();
     }
 }
