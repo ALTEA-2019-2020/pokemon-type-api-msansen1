@@ -33,9 +33,4 @@ public class PokemonTypeController {
     public List<PokemonType> getAllPokemonTypes() {
         return pokemonTypeService.getAllPokemonTypes();
     }
-
-    @GetMapping("/flat")
-    public List<PokemonFlat> getAllPokemonFlat() {
-        return pokemonTypeService.getAllPokemonFlats();
-    }
 }
