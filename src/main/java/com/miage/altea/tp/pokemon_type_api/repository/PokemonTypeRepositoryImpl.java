@@ -6,6 +6,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,6 +38,17 @@ public class PokemonTypeRepositoryImpl implements PokemonTypeRepository {
     public PokemonType findPokemonTypeByName(String name) {
         System.out.println("Loading Pokemon information for Pokemon name " + name);
         return this.pokemons.stream().filter(it -> it.getName().equals(name)).findAny().orElseThrow();
+    }
+
+    @Override
+    public List<PokemonType> findPokemonTypeByType(String[] type) {
+        System.out.println("Loading Pokemon information for Pokemon types " + Arrays.asList(type).toString());
+        List<PokemonType> list = this.pokemons
+                .stream()
+                .filter(it -> it.getTypes().containsAll(Arrays.asList(type)))
+                .sorted((o1, o2) -> o1.getId() - o2.getId())
+                .collect(Collectors.toList());
+        return list;
     }
 
     @Override

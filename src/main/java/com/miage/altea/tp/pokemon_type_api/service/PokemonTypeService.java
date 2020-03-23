@@ -16,4 +16,6 @@ public interface PokemonTypeService {
     void setPokemonTypeRepository(PokemonTypeRepository pokemonTypeRepository);
 
     void setTranslationRepository(TranslationRepository translationRepository);
+
+    List<PokemonType> getPokemonTypeByType(String[] types);
 }

@@ -74,4 +74,16 @@ public class PokemonTypeServiceImpl implements PokemonTypeService{
     public void setTranslationRepository(TranslationRepository translationRepository) {
         this.translationRepository = translationRepository;
     }
+
+    @Override
+    public List<PokemonType> getPokemonTypeByType(String[] types) {
+        var pokeList = pokemonTypeRepository.findPokemonTypeByType(types);
+        List<PokemonType> out = new ArrayList<>();
+        pokeList.forEach(pokemonType -> {
+            PokemonType poke = pokemonType;
+            poke.setName(translationRepository.getPokemonName(pokemonType.getId(), LocaleContextHolder.getLocale()));
+            out.add(poke);
+        });
+        return out;
+    }
 }

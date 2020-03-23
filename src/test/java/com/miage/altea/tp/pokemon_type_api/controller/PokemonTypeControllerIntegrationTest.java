@@ -56,7 +56,6 @@ class PokemonTypeControllerIntegrationTest {
     void getPokemon_withId1AndFrenchAcceptLanguage_shouldReturnBulbizarre() {
         var headers = new HttpHeaders();
         headers.setAcceptLanguageAsLocales(List.of(Locale.FRENCH));
-
         var httpRequest = new HttpEntity<>(headers);
 
         var bulbizarreResponseEntity = this.restTemplate.exchange("http://localhost:" + port + "/pokemon-types/1", HttpMethod.GET, httpRequest, PokemonType.class);
