@@ -2,6 +2,7 @@ package com.miage.altea.tp.pokemon_type_api.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.miage.altea.tp.pokemon_type_api.bo.Translation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 
@@ -9,7 +10,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 
+@Slf4j
 @Repository
 public class TranslationRepositoryImpl implements TranslationRepository {
 
@@ -41,7 +44,11 @@ public class TranslationRepositoryImpl implements TranslationRepository {
     }
 
     @Override
-    public String getPokemonName(int id, Locale locale) {
-        return this.translations.get(locale).get(id-1).getName();
+    public Optional<String> getPokemonName(int id, Locale locale) {
+        log.info(locale.getCountry());
+        //Gestion d'une Langue par defaut dans le cas ou le navigateur supporterait une autre langue
+        if (this.translations.get(locale.toLanguageTag()) == null) locale = Locale.ENGLISH;
+        log.debug("Translating to " + locale.toLanguageTag());
+        return Optional.ofNullable(this.translations.get(locale).get(id - 1).getName());
     }
 }

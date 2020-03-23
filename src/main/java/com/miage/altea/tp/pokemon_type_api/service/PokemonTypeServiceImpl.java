@@ -31,14 +31,14 @@ public class PokemonTypeServiceImpl implements PokemonTypeService{
     @Override
     public PokemonType getPokemonTypeById(int id) {
         PokemonType poke = pokemonTypeRepository.findPokemonTypeById(id);
-        poke.setName(translationRepository.getPokemonName(poke.getId(), LocaleContextHolder.getLocale()));
+        poke.setName(translationRepository.getPokemonName(poke.getId(), LocaleContextHolder.getLocale()).orElseThrow());
         return poke;
     }
 
     @Override
     public PokemonType getPokemonTypeByName(String name) {
         PokemonType poke = pokemonTypeRepository.findPokemonTypeByName(name);
-        poke.setName(translationRepository.getPokemonName(poke.getId(), LocaleContextHolder.getLocale()));
+        poke.setName(translationRepository.getPokemonName(poke.getId(), LocaleContextHolder.getLocale()).orElseThrow());
         return poke;
     }
 
@@ -49,7 +49,7 @@ public class PokemonTypeServiceImpl implements PokemonTypeService{
         List<PokemonType> out = new ArrayList<>();
         pokeList.forEach(pokemonType -> {
             PokemonType poke = pokemonType;
-            poke.setName(translationRepository.getPokemonName(pokemonType.getId(), LocaleContextHolder.getLocale()));
+            poke.setName(translationRepository.getPokemonName(pokemonType.getId(), LocaleContextHolder.getLocale()).orElseThrow());
             out.add(poke);
         });
         return out;
@@ -81,7 +81,7 @@ public class PokemonTypeServiceImpl implements PokemonTypeService{
         List<PokemonType> out = new ArrayList<>();
         pokeList.forEach(pokemonType -> {
             PokemonType poke = pokemonType;
-            poke.setName(translationRepository.getPokemonName(pokemonType.getId(), LocaleContextHolder.getLocale()));
+            poke.setName(translationRepository.getPokemonName(pokemonType.getId(), LocaleContextHolder.getLocale()).orElseThrow());
             out.add(poke);
         });
         return out;

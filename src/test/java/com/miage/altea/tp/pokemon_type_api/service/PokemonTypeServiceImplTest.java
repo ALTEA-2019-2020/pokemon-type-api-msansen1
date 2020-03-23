@@ -10,7 +10,8 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import java.util.List;
 import java.util.Locale;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 class PokemonTypeServiceImplTest {
@@ -68,8 +69,8 @@ class PokemonTypeServiceImplTest {
 
         var translationRepository = mock(TranslationRepository.class);
         pokemonTypeService.setTranslationRepository(translationRepository);
-        when(translationRepository.getPokemonName(25, Locale.FRENCH)).thenReturn("Pikachu-FRENCH");
-        when(translationRepository.getPokemonName(26, Locale.FRENCH)).thenReturn("Raichu-FRENCH");
+        when(translationRepository.getPokemonName(25, Locale.FRENCH).get()).thenReturn("Pikachu-FRENCH");
+        when(translationRepository.getPokemonName(26, Locale.FRENCH).get()).thenReturn("Raichu-FRENCH");
 
         LocaleContextHolder.setLocale(Locale.FRENCH);
 
