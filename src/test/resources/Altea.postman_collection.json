@@ -102,17 +102,18 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8081/trainers/Ash",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8081",
-									"path": [
-										"trainers",
-										"Ash"
-									]
-								}
+                                  "raw": "https://trainer-type-msn.herokuapp.com/trainers/Ash",
+                                  "protocol": "https",
+                                  "host": [
+                                    "trainer-type-msn",
+                                    "herokuapp",
+                                    "com"
+                                  ],
+                                  "path": [
+                                    "trainers",
+                                    "Ash"
+                                  ]
+                                }
 							},
 							"response": []
 						}
@@ -213,22 +214,74 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "http://localhost:8080/pokemon-types/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"pokemon-types",
-										""
-									]
-								}
-							},
-							"response": []
-						}
-					],
+                              "url": {
+                                "raw": "http://localhost:8080/pokemon-types/",
+                                "protocol": "http",
+                                "host": [
+                                  "localhost"
+                                ],
+                                "port": "8080",
+                                "path": [
+                                  "pokemon-types",
+                                  ""
+                                ]
+                              }
+                            },
+                          "response": []
+                        },
+                      {
+                        "name": "?types=electric",
+                        "request": {
+                          "method": "GET",
+                          "header": [],
+                          "url": {
+                            "raw": "http://localhost:8080/pokemon-types/?types=electric",
+                            "protocol": "http",
+                            "host": [
+                              "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                              "pokemon-types",
+                              ""
+                            ],
+                            "query": [
+                              {
+                                "key": "types",
+                                "value": "electric"
+                              }
+                            ]
+                          }
+                        },
+                        "response": []
+                      },
+                      {
+                        "name": "?types=bug,poison",
+                        "request": {
+                          "method": "GET",
+                          "header": [],
+                          "url": {
+                            "raw": "http://localhost:8080/pokemon-types/?types=bug,poison",
+                            "protocol": "http",
+                            "host": [
+                              "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                              "pokemon-types",
+                              ""
+                            ],
+                            "query": [
+                              {
+                                "key": "types",
+                                "value": "bug,poison"
+                              }
+                            ]
+                          }
+                        },
+                        "response": []
+                      }
+                    ],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
@@ -241,17 +294,18 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/pokemon-types/25",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"pokemon-types",
-										"25"
-									]
-								}
+                                  "raw": "https://pokemon-type-msn-tp3.herokuapp.com/pokemon-types/25",
+                                  "protocol": "https",
+                                  "host": [
+                                    "pokemon-type-msn-tp3",
+                                    "herokuapp",
+                                    "com"
+                                  ],
+                                  "path": [
+                                    "pokemon-types",
+                                    "25"
+                                  ]
+                                }
 							},
 							"response": []
 						},
@@ -287,18 +341,72 @@
 									"protocol": "https",
 									"host": [
 										"pokemon-type-msn-tp3",
-										"herokuapp",
-										"com"
-									],
-									"path": [
-										"pokemon-types",
-										""
-									]
-								}
-							},
-							"response": []
-						}
-					],
+                                      "herokuapp",
+                                      "com"
+                                    ],
+                                  "path": [
+                                    "pokemon-types",
+                                    ""
+                                  ]
+                                }
+                            },
+                          "response": []
+                        },
+                      {
+                        "name": "?types=electric",
+                        "request": {
+                          "method": "GET",
+                          "header": [],
+                          "url": {
+                            "raw": "https://pokemon-type-msn-tp3.herokuapp.com/pokemon-types/?types=electric",
+                            "protocol": "https",
+                            "host": [
+                              "pokemon-type-msn-tp3",
+                              "herokuapp",
+                              "com"
+                            ],
+                            "path": [
+                              "pokemon-types",
+                              ""
+                            ],
+                            "query": [
+                              {
+                                "key": "types",
+                                "value": "electric"
+                              }
+                            ]
+                          }
+                        },
+                        "response": []
+                      },
+                      {
+                        "name": "?types=bug,poison",
+                        "request": {
+                          "method": "GET",
+                          "header": [],
+                          "url": {
+                            "raw": "https://pokemon-type-msn-tp3.herokuapp.com/pokemon-types/?types=bug,poison",
+                            "protocol": "https",
+                            "host": [
+                              "pokemon-type-msn-tp3",
+                              "herokuapp",
+                              "com"
+                            ],
+                            "path": [
+                              "pokemon-types",
+                              ""
+                            ],
+                            "query": [
+                              {
+                                "key": "types",
+                                "value": "bug,poison"
+                              }
+                            ]
+                          }
+                        },
+                        "response": []
+                      }
+                    ],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				}
@@ -311,24 +419,23 @@
 				{
 					"name": "localhost",
 					"item": [
-						{
-							"name": "/battles/?trainer=Ash&opponent=Misty",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8082/battles/?trainer=Ash&opponent=Misty",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8082",
-									"path": [
-										"battles",
-										""
-									],
-									"query": [
-										{
+                      {
+                        "name": "/battles?trainer=Ash&opponent=Misty",
+                        "request": {
+                          "method": "POST",
+                          "header": [],
+                          "url": {
+                            "raw": "http://localhost:8082/battles?trainer=Ash&opponent=Misty",
+                            "protocol": "http",
+                            "host": [
+                              "localhost"
+                            ],
+                            "port": "8082",
+                            "path": [
+                              "battles"
+                            ],
+                            "query": [
+                              {
 											"key": "trainer",
 											"value": "Ash"
 										},
@@ -342,23 +449,22 @@
 							},
 							"response": []
 						},
-						{
-							"name": "/battles/",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8082/battles/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8082",
-									"path": [
-										"battles",
-										""
-									]
-								},
+                      {
+                        "name": "/battles",
+                        "request": {
+                          "method": "GET",
+                          "header": [],
+                          "url": {
+                            "raw": "http://localhost:8082/battles",
+                            "protocol": "http",
+                            "host": [
+                              "localhost"
+                            ],
+                            "port": "8082",
+                            "path": [
+                              "battles"
+                            ]
+                          },
 								"description": "get battles"
 							},
 							"response": []

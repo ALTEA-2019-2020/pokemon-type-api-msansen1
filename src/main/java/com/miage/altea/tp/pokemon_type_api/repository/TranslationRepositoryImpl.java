@@ -2,7 +2,6 @@ package com.miage.altea.tp.pokemon_type_api.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.miage.altea.tp.pokemon_type_api.bo.Translation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 
@@ -43,8 +42,6 @@ public class TranslationRepositoryImpl implements TranslationRepository {
 
     @Override
     public String getPokemonName(int id, Locale locale) {
-        System.out.println(id);
-        System.out.println(locale);
         return this.translations.get(locale).get(id-1).getName();
     }
 }
