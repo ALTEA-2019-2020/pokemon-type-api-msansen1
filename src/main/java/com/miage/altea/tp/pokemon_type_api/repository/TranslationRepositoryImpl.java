@@ -47,8 +47,8 @@ public class TranslationRepositoryImpl implements TranslationRepository {
     public Optional<String> getPokemonName(int id, Locale locale) {
         log.info(locale.getCountry());
         //Gestion d'une Langue par defaut dans le cas ou le navigateur supporterait une autre langue
-        if (this.translations.get(locale.toLanguageTag()) == null) locale = Locale.ENGLISH;
-        log.debug("Translating to " + locale.toLanguageTag());
+        if (this.translations.get(locale) == null) locale = Locale.ENGLISH;
+        log.info("Translating to " + locale.toLanguageTag());
         return Optional.ofNullable(this.translations.get(locale).get(id - 1).getName());
     }
 }
