@@ -1,12 +1,11 @@
 package com.miage.altea.tp.pokemon_type_api.dto;
 
-import com.miage.altea.tp.pokemon_type_api.bo.Sprites;
-import com.miage.altea.tp.pokemon_type_api.bo.Stats;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
+/**
+ * Utilisé pour le projet MIAGE PEPIT www.comparit.fr
+ **/
 
 @Getter
 @Setter
