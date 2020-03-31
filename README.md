@@ -6,15 +6,15 @@ An api used as a microservice for the project [Pokemon GameUI](https://github.co
 
 [Demo Hosted on Heroku](https://pokemon-type-msn-tp3.herokuapp.com/pokemon-types/)
 
-#Configuration necessaire au lancement :  
+# Configuration necessaire au lancement :  
 
 NA  
 
-#API disponibles  
+# API disponibles  
 [Swagger url](https://pokemon-type-msn-tp3.herokuapp.com/swagger-ui.html)  
 [JSON api-docs](https://pokemon-type-msn-tp3.herokuapp.com/v2/api-docs)
 
-##PokemonTypeController:  
+## PokemonTypeController:  
 	{GET /pokemon-types/{id}, produces [application/json]}: getPokemonTypeFromId(int)  
 	{GET /pokemon-types/, params [types], produces [application/json]}: getPokemonTypeFromName(String[])  
 	{GET /pokemon-types/, params [name], produces [application/json]}: getPokemonTypeFromName(String)  
