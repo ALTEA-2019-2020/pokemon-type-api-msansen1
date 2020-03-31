@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 /**
- * Utilisé pour le projet MIAGE PEPIT www.comparit.fr
+ * Utilisé pour le projet MIAGE PEPIT www.comparit.fr: https://github.com/comparIt/comparIt_docker#envie-de-charger-des-produits
  **/
 
 @Getter
